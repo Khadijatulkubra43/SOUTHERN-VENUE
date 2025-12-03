@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Southern Venue </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">SOUTHERN VENUE</span>
+                        <span class="logo-tagline">Fashion Delivered</span>
+                    </div>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                     <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+               <div class="nav-icons">
+                    <a id="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a id="cartIcon" class="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a id="userIcon">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">SOUTHERN VENUE</span>
+                    <span class="logo-tagline">Fashion Delivered</span>
+                </div>
+            </a>
+            <button class="mobile-menu-btn" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="mobile-menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+         <div class="mobile-menu-footer">
+            <a href="#" id="mobileSearchIcon">
+                <i class="fas fa-search"></i>
+            </a>
+            <a href="#" id="mobileCartIcon">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a href="#" id="mobileUserIcon">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </div>
+      <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <div class="search-header">
+                <h2 class="search-title">What are you looking for?</h2>
+                <button class="close-search" id="closeSearch">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-input-container">
+                <input type="text" class="search-input" id="searchInput"
+                    placeholder="Search for dresses, styles, collections...">
+                <button class="search-btn" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="search-suggestions">
+                <div class="suggestion-tag">Summer Dresses</div>
+                <div class="suggestion-tag">Evening Wear</div>
+                <div class="suggestion-tag">Casual Dresses</div>
+                <div class="suggestion-tag">Party Outfits</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Shopping Bag</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-price" id="cartTotal">$0.00</span>
+            </div>
+            <div class="cart-buttons">
+                <button class="cart-btn cart-btn-checkout">Proceed to Checkout</button>
+                <a href="#collection" class="cart-btn cart-btn-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Authentication Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2 class="auth-title" id="authTitle">Welcome Back</h2>
+                <button class="close-auth" id="closeAuth">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Sign In</button>
+                <button class="auth-tab" id="registerTab">Create Account</button>
+            </div>
+            <div class="auth-content">
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign In</button>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form hidden" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" placeholder="Confirm your password"
+                            required>
+                    </div>
+                    <button type="submit" class="auth-btn">Create Account</button>
+                </form>
+
+                <!-- User Logged In View -->
+                <div class="user-logged-in hidden" id="userLoggedIn">
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="user-name" id="userName">User Name</h3>
+                    <p class="user-email" id="userEmail">user@example.com</p>
+                    <div class="user-actions">
+                        <button class="user-btn user-btn-profile">My Profile</button>
+                        <button class="user-btn user-btn-logout" id="logoutBtn">Log Out</button>
+                    </div>
+                </div>
+
+                <div class="auth-footer">
+                    <p>By continuing, you agree to Southern Venue's <a href="#">Terms of Service</a> and <a
+                            href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Hero Banner -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero-content reveal">
+                <h1>Our Story, Your Style</h1>
+                <p>At Southern Venue, we believe fashion should be accessible, convenient, and sustainable. Founded with a vision to revolutionize how people shop for dresses, we combine style, quality, and ethical practices to bring you fashion that feels good and looks great.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story -->
+    <section class="our-story section-padding">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content reveal">
+                    <h2>Where It All Began</h2>
+                    <p>Southern Venue was founded in 2018 by fashion enthusiast Sarah Mitchell, who noticed a gap in the market for trendy, affordable dresses delivered directly to customers' doors. What started as a small online boutique has grown into a beloved brand serving thousands of fashion-forward individuals across the country.</p>
+                    <p>Our journey began with a simple idea: fashion shouldn't be complicated. We wanted to create a shopping experience that saves time while delivering exceptional quality and style.</p>
+                    <p>Today, we're proud to be a community-driven brand that values sustainability, inclusivity, and innovation in everything we do.</p>
+                </div>
+                <div class="story-image reveal">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Our Story">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Mission & Values -->
+    <section class="mission-values section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Mission & Values</h2>
+                <p>Guiding principles that shape everything we do</p>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To make fashionable, high-quality dresses accessible to everyone through convenient delivery and exceptional customer service, while maintaining ethical and sustainable practices.</p>
+                </div>
+                
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Customer First</h3>
+                    <p>We prioritize your satisfaction above all else. From design to delivery, every decision is made with your needs and preferences in mind.</p>
+                </div>
+                
+                <!-- <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainability</h3>
+                    <p>Committed to reducing our environmental impact through sustainable materials, ethical manufacturing, and responsible packaging.</p>
+                </div> -->
+                
+                <div class="value-card reveal">
+                    <div class="value-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Quality Promise</h3>
+                    <p>Every dress undergoes rigorous quality checks to ensure it meets our high standards for craftsmanship, durability, and comfort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Makes Us Unique -->
+    <section class="unique-features section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>What Makes Us Unique</h2>
+                <p>Discover the Southern Venue difference</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-number">01</div>
+                    <h3>Direct-to-Door Delivery</h3>
+                    <p>Skip the crowded stores. We deliver trendy fashion straight to your doorstep with reliable, trackable shipping.</p>
+                </div>
+                
+                <!-- <div class="feature-card reveal">
+                    <div class="feature-number">02</div>
+                    <h3>Affordable Luxury</h3>
+                    <p>Premium quality at accessible prices. We believe great fashion shouldn't require a luxury budget.</p>
+                </div>
+                 -->
+                <div class="feature-card reveal">
+                    <div class="feature-number">02</div>
+                    <h3>Trend-Focused Collections</h3>
+                    <p>Our design team stays ahead of fashion trends, bringing you the latest styles that keep you looking fresh and confident.</p>
+                </div>
+                
+                <div class="feature-card reveal">
+                    <div class="feature-number">03</div>
+                    <h3>Personalized Experience</h3>
+                    <p>From style recommendations to easy returns, we tailor our service to meet your individual fashion needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability / Quality Promise -->
+    <section class="sustainability section-padding">
+        <div class="container">
+            <div class="sustainability-content reveal">
+                <h2>Our Commitment to Sustainability</h2>
+                <p>At Southern Venue, we believe in fashion that's good for you and the planet. We're committed to reducing our environmental footprint while maintaining the highest quality standards.</p>
+                
+                <div class="sustainability-stats">
+                    <div class="sustainability-stat reveal">
+                        <div class="stat-number" data-count="85">0</div>
+                        <div class="stat-label">Sustainable Materials</div>
+                    </div>
+                    <div class="sustainability-stat reveal">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">Recyclable Packaging</div>
+                    </div>
+                    <div class="sustainability-stat reveal">
+                        <div class="stat-number" data-count="65">0</div>
+                        <div class="stat-label">Carbon Neutral Shipping</div>
+                    </div>
+                    <div class="sustainability-stat reveal">
+                        <div class="stat-number" data-count="98">0</div>
+                        <div class="stat-label">Customer Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Team -->
+    <section class="team-section section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Meet Our Team</h2>
+                <p>The passionate people behind Southern Venue</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member reveal">
+                    <div class="team-member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80" alt="Sarah Mitchell">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Sarah Mitchell</h3>
+                        <span class="position">Founder & CEO</span>
+                        <p>With over 10 years in fashion retail, Sarah founded Southern Venue to make trendy fashion accessible to everyone.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member reveal">
+                    <div class="team-member-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="James Rodriguez">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>James Rodriguez</h3>
+                        <span class="position">Head Designer</span>
+                        <p>James brings international fashion experience to create our trend-forward collections with a focus on comfort and style.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member reveal">
+                    <div class="team-member-image">
+                        <img src="https://e7.pngegg.com/pngimages/18/484/png-clipart-customer-service-technical-support-customer-experience-customer-service-girl-service-business-thumbnail.png" alt="Emma Chen">
+                    </div>
+                    <div class="team-member-info">
+                        <h3>Emma Chen</h3>
+                        <span class="position">Sustainability Director</span>
+                        <p>Emma ensures our practices meet the highest environmental standards while maintaining quality and style.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Behind the Scenes -->
+    <section class="behind-scenes section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Our Crafting Process</h2>
+                <p>From concept to your closet: How we create your favorite dresses</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Design & Concept</h3>
+                        <p>Our design team researches global trends and creates initial sketches, focusing on comfort, style, and wearability for everyday life.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step reveal">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Material Selection</h3>
+                        <p>We carefully source sustainable, high-quality fabrics that are durable, comfortable, and environmentally responsible.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step reveal">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Pattern Making</h3>
+                        <p>Expert pattern makers transform designs into precise templates, ensuring perfect fit and flattering silhouettes for all body types.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step reveal">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Quality Crafting</h3>
+                        <p>Skilled artisans bring the designs to life with attention to detail, using techniques that ensure durability and excellent finish.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step reveal">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Final Inspection</h3>
+                        <p>Every dress undergoes rigorous quality checks before being carefully packaged in eco-friendly materials for delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Testimonials -->
+    <section class="testimonials section-padding">
+        <div class="container">
+            <div class="section-title reveal">
+                <h2>Customer Love</h2>
+                <p>Hear what our community has to say</p>
+            </div>
+            
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "Southern Venue has completely changed how I shop for clothes. The quality is exceptional, the styles are always on trend, and having everything delivered to my door saves me so much time. I've recommended them to all my friends!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-avatar">
+                                    <img src="https://e7.pngegg.com/pngimages/18/484/png-clipart-customer-service-technical-support-customer-experience-customer-service-girl-service-business-thumbnail.png" alt="Jessica M.">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <h4>Jessica M.</h4>
+                                    <p>Marketing Professional, 28</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "As someone who values both style and sustainability, Southern Venue is perfect. I love that they use eco-friendly materials without compromising on design. The dresses are comfortable, beautiful, and make me feel confident."
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sarah T.">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <h4>Sarah T.</h4>
+                                    <p>Graphic Designer, 32</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">
+                                "The convenience of Southern Venue is unbeatable. As a busy professional, I don't have time to shop in stores. Their dresses always fit perfectly, and the quality is much better than I expected for the price. Highly recommended!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="testimonial-author-avatar">
+                                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Amanda L.">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <h4>Amanda L.</h4>
+                                    <p>Software Engineer, 29</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-nav" id="testimonialNav">
+                    <div class="testimonial-dot active" data-index="0"></div>
+                    <div class="testimonial-dot" data-index="1"></div>
+                    <div class="testimonial-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section section-padding">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to Experience Southern Venue?</h2>
+                <p>Join thousands of satisfied customers who have discovered the convenience and style of Southern Venue. Explore our collection today and find your perfect dress.</p>
+                <a href="shop.html" class="cta-button">
+                    <i class="fas fa-shopping-bag"></i> Explore Our Collection
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter section-padding">
+        <div class="container">
+            <div class="newsletter-content reveal">
+                <h2>Stay Connected</h2>
+                <p>Subscribe to our newsletter for exclusive updates, styling tips, and special offers delivered straight to your inbox.</p>
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="logo footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" />
+                                <path d="M12,6a6,6,0,1,0,6,6A6,6,0,0,0,12,6Zm0,10a4,4,0,1,1,4-4A4,4,0,0,1,12,16Z" />
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main" style="color: white; -webkit-text-fill-color: white;">SOUTHERN
+                                VENUE</span>
+                            <span class="logo-tagline">Fashion Delivered</span>
+                        </div>
+                    </a>
+                    <p>Bringing trendy, affordable fashion directly to your doorstep.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                       <li><a href="index.html"  class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Customer Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Fashion Ave, New York
+                        </li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> hello@southernvenue.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Southern Venue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#header" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+   
+   <script src="about.js"></script>
+   
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Southern Venue </title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+   <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">SOUTHERN VENUE</span>
+                        <span class="logo-tagline">Fashion Delivered</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html"  class="active">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <a id="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a id="cartIcon" class="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a id="userIcon">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">SOUTHERN VENUE</span>
+                    <span class="logo-tagline">Fashion Delivered</span>
+                </div>
+            </a>
+            <button class="close-auth" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu-footer">
+            <a href="#" id="mobileSearchIcon">
+                <i class="fas fa-search"></i>
+            </a>
+            <a href="#" id="mobileCartIcon">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a href="#" id="mobileUserIcon">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </div>
+  <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <div class="search-header">
+                <h2 class="search-title">What are you looking for?</h2>
+                <button class="close-search" id="closeSearch">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-input-container">
+                <input type="text" class="search-input" id="searchInput"
+                    placeholder="Search for dresses, styles, collections...">
+                <button class="search-btn" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="search-suggestions">
+                <div class="suggestion-tag">Summer Dresses</div>
+                <div class="suggestion-tag">Evening Wear</div>
+                <div class="suggestion-tag">Casual Dresses</div>
+                <div class="suggestion-tag">Party Outfits</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Shopping Bag</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-price" id="cartTotal">$0.00</span>
+            </div>
+            <div class="cart-buttons">
+                <button class="cart-btn cart-btn-checkout">Proceed to Checkout</button>
+                <a href="#collection" class="cart-btn cart-btn-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Authentication Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2 class="auth-title" id="authTitle">Welcome Back</h2>
+                <button class="close-auth" id="closeAuth">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Sign In</button>
+                <button class="auth-tab" id="registerTab">Create Account</button>
+            </div>
+            <div class="auth-content">
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign In</button>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form hidden" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" placeholder="Confirm your password"
+                            required>
+                    </div>
+                    <button type="submit" class="auth-btn">Create Account</button>
+                </form>
+
+                <!-- User Logged In View -->
+                <div class="user-logged-in hidden" id="userLoggedIn">
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="user-name" id="userName">User Name</h3>
+                    <p class="user-email" id="userEmail">user@example.com</p>
+                    <div class="user-actions">
+                        <button class="user-btn user-btn-profile">My Profile</button>
+                        <button class="user-btn user-btn-logout" id="logoutBtn">Log Out</button>
+                    </div>
+                </div>
+
+                <div class="auth-footer">
+                    <p>By continuing, you agree to Southern Venue's <a href="#">Terms of Service</a> and <a
+                            href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ENHANCED HERO SECTION -->
+    <section class="shop-hero">
+        <!-- Floating elements for visual interest -->
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Discover Your Style</h1>
+                    <p class="hero-subtitle">Explore our curated collection of trendy dresses designed for the modern individual. From casual daywear to elegant evening dresses, find the perfect piece that matches your style.</p>
+                    
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Premium Quality</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-truck"></i>
+                            <span>Free Shipping</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-undo"></i>
+                            <span>Easy Returns</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-buttons">
+                        <a href="#productsGrid" class="btn-primary">
+                            <i class="fas fa-shopping-bag"></i>
+                            Shop Collection
+                        </a>
+                        <a href="#promoBanner" class="btn-secondary">
+                            <i class="fas fa-tag"></i>
+                            View Sale
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80" alt="Fashion Collection" class="hero-image">
+                        <div class="hero-badge">New Collection</div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Products</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4.8★</div>
+                            <div class="stat-label">Ratings</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Support</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Filters & Sorting -->
+    <section class="shop-controls">
+        <div class="container">
+            <div class="controls-container">
+                <button class="filter-toggle" id="filterToggle">
+                    <i class="fas fa-filter"></i> Filter
+                </button>
+                
+                <div class="product-filters" id="productFilters">
+                    <div class="filter-group">
+                        <span class="filter-label">Category:</span>
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="all">All Dresses</option>
+                            <option value="casual">Casual Wear</option>
+                            <option value="evening">Evening Wear</option>
+                            <option value="party">Party Dresses</option>
+                            <option value="summer">Summer Collection</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Size:</span>
+                        <select class="filter-select" id="sizeFilter">
+                            <option value="all">All Sizes</option>
+                            <option value="xs">XS</option>
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                            <option value="xl">XL</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <span class="filter-label">Price:</span>
+                        <select class="filter-select" id="priceFilter">
+                            <option value="all">All Prices</option>
+                            <option value="under-50">Under $50</option>
+                            <option value="50-100">$50 - $100</option>
+                            <option value="100-150">$100 - $150</option>
+                            <option value="over-150">Over $150</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="sorting-options">
+                    <span class="sort-label">Sort by:</span>
+                    <select class="sort-select" id="sortSelect">
+                        <option value="featured">Featured</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid / Collection Listing -->
+    <section class="shop-main">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Collection</h2>
+                <p>Handpicked dresses that blend style, comfort, and quality for every occasion.</p>
+            </div>
+            
+            <div class="products-count" id="productsCount">
+                <span>Showing 12 of 48 products</span>
+                <span id="activeFilters"></span>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Product Cards will be dynamically added here -->
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <a href="#" class="page-prev">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a href="#" class="page-number active">1</a>
+                <a href="#" class="page-number">2</a>
+                <a href="#" class="page-number">3</a>
+                <a href="#" class="page-number">4</a>
+                <a href="#" class="page-next">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+            
+            <!-- Load More Button -->
+            <div class="load-more-container" id="loadMoreContainer">
+                <button class="load-more-btn" id="loadMoreBtn">
+                    <i class="fas fa-plus"></i> Load More Products
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banner (Optional) -->
+    <section class="promo-banner" id="promoBanner">
+        <div class="container">
+            <div class="promo-content">
+                <div class="promo-text">
+                    <h2>Summer Sale: Up to 50% Off</h2>
+                    <p>Don't miss our biggest sale of the season! Refresh your wardrobe with our summer collection at amazing prices. Limited time offer.</p>
+                    <a href="#summer-collection" class="promo-btn">
+                        <i class="fas fa-fire"></i> Shop Sale
+                    </a>
+                </div>
+                <div class="promo-image">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Summer Sale">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Support Strip (Optional) -->
+    <section class="support-strip">
+        <div class="container">
+            <div class="support-grid">
+                <div class="support-item">
+                    <div class="support-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="support-text">
+                        <h3>Free Shipping</h3>
+                        <p>Free delivery on all orders over $50. Fast and reliable shipping to your doorstep.</p>
+                    </div>
+                </div>
+                
+                <div class="support-item">
+                    <div class="support-icon">
+                        <i class="fas fa-undo"></i>
+                    </div>
+                    <div class="support-text">
+                        <h3>Easy Returns</h3>
+                        <p>30-day return policy. We make returns easy and hassle-free for our customers.</p>
+                    </div>
+                </div>
+                
+                <div class="support-item">
+                    <div class="support-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="support-text">
+                        <h3>Secure Payment</h3>
+                        <p>Your payment information is protected with bank-level security encryption.</p>
+                    </div>
+                </div>
+                
+                <div class="support-item">
+                    <div class="support-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="support-text">
+                        <h3>24/7 Support</h3>
+                        <p>Our customer service team is here to help you anytime with any questions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay In The Loop</h2>
+                <p>Subscribe to our newsletter for exclusive offers, new arrivals, and style inspiration delivered straight to your inbox.</p>
+                
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+     <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="logo footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" />
+                                <path d="M12,6a6,6,0,1,0,6,6A6,6,0,0,0,12,6Zm0,10a4,4,0,1,1,4-4A4,4,0,0,1,12,16Z" />
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main" style="color: white; -webkit-text-fill-color: white;">SOUTHERN
+                                VENUE</span>
+                            <span class="logo-tagline">Fashion Delivered</span>
+                        </div>
+                    </a>
+                    <p>Bringing trendy, affordable fashion directly to your doorstep.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                       <li><a href="index.html"  class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Customer Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Fashion Ave, New York
+                        </li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> hello@southernvenue.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Southern Venue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Shopping Bag</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <div class="cart-empty-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h3>Your bag is empty</h3>
+                <p>Add some stylish dresses to get started!</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-price" id="cartTotal">$0.00</span>
+            </div>
+            <div class="cart-buttons">
+                <button class="cart-btn cart-btn-checkout">Proceed to Checkout</button>
+                <a href="#" class="cart-btn cart-btn-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#header" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+   <script src="shop.js"></script>
+</body>
+</html>

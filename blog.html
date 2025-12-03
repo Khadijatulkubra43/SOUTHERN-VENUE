@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Southern Venue </title>
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+   <!-- Header & Navigation -->
+    <header id="header">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">SOUTHERN VENUE</span>
+                        <span class="logo-tagline">Fashion Delivered</span>
+                    </div>
+                </a>
+
+                <ul class="nav-links">
+                    <li><a href="index.html" >Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="shop.html" >Shop</a></li>
+                    <li><a href="blog.html"  class="active">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <div class="nav-icons">
+                    <a id="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a id="cartIcon" class="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a id="userIcon">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">SOUTHERN VENUE</span>
+                    <span class="logo-tagline">Fashion Delivered</span>
+                </div>
+            </a>
+            <button class="close-auth" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul class="mobile-menu-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="mobile-menu-footer">
+            <a href="#" id="mobileSearchIcon">
+                <i class="fas fa-search"></i>
+            </a>
+            <a href="#" id="mobileCartIcon">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+            <a href="#" id="mobileUserIcon">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </div>
+     <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <div class="search-header">
+                <h2 class="search-title">What are you looking for?</h2>
+                <button class="close-search" id="closeSearch">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-input-container">
+                <input type="text" class="search-input" id="searchInput"
+                    placeholder="Search for dresses, styles, collections...">
+                <button class="search-btn" id="searchButton">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="search-suggestions">
+                <div class="suggestion-tag">Summer Dresses</div>
+                <div class="suggestion-tag">Evening Wear</div>
+                <div class="suggestion-tag">Casual Dresses</div>
+                <div class="suggestion-tag">Party Outfits</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 class="cart-title">Your Shopping Bag</h2>
+            <button class="close-cart" id="closeCart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items will be dynamically added here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span class="cart-total-label">Total:</span>
+                <span class="cart-total-price" id="cartTotal">$0.00</span>
+            </div>
+            <div class="cart-buttons">
+                <button class="cart-btn cart-btn-checkout">Proceed to Checkout</button>
+                <a href="#collection" class="cart-btn cart-btn-shopping">Continue Shopping</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Authentication Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <div class="auth-header">
+                <h2 class="auth-title" id="authTitle">Welcome Back</h2>
+                <button class="close-auth" id="closeAuth">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" id="loginTab">Sign In</button>
+                <button class="auth-tab" id="registerTab">Create Account</button>
+            </div>
+            <div class="auth-content">
+                <!-- Login Form -->
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="auth-btn">Sign In</button>
+                </form>
+
+                <!-- Register Form -->
+                <form class="auth-form hidden" id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email Address</label>
+                        <input type="email" id="registerEmail" placeholder="you@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" placeholder="Confirm your password"
+                            required>
+                    </div>
+                    <button type="submit" class="auth-btn">Create Account</button>
+                </form>
+
+                <!-- User Logged In View -->
+                <div class="user-logged-in hidden" id="userLoggedIn">
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="user-name" id="userName">User Name</h3>
+                    <p class="user-email" id="userEmail">user@example.com</p>
+                    <div class="user-actions">
+                        <button class="user-btn user-btn-profile">My Profile</button>
+                        <button class="user-btn user-btn-logout" id="logoutBtn">Log Out</button>
+                    </div>
+                </div>
+
+                <div class="auth-footer">
+                    <p>By continuing, you agree to Southern Venue's <a href="#">Terms of Service</a> and <a
+                            href="#">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENHANCED BLOG HERO SECTION -->
+    <section class="blog-hero">
+        <!-- Floating decorative elements -->
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">
+                        <i class="fas fa-star"></i> Featured Blog
+                    </span>
+
+                    <h1 class="hero-title">Style Stories & Fashion Insights</h1>
+
+                    <p class="hero-subtitle">Explore the world of fashion through our curated articles, trend reports,
+                        and style guides. Discover inspiration for every season and occasion.</p>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">250+</div>
+                            <div class="stat-label">Articles</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15K</div>
+                            <div class="stat-label">Readers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">45</div>
+                            <div class="stat-label">Contributors</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#latest-posts" class="btn-primary">
+                            <i class="fas fa-book-open"></i>
+                            Read Latest Articles
+                        </a>
+                        <a href="#newsletter" class="btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Subscribe
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+                            alt="Fashion Blog Hero" class="hero-image">
+                    </div>
+
+                    <div class="hero-featured-post">
+                        <h4 class="featured-post-title">Summer 2023 Fashion Trends: What You Need to Know</h4>
+                        <div class="featured-post-meta">
+                            <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                            <span><i class="far fa-clock"></i> 5 min read</span>
+                        </div>
+                        <a href="#" class="featured-post-link">
+                            Read Feature <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="blog-search">
+        <div class="container">
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" class="search-input" placeholder="Search articles, topics, or keywords...">
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-container">
+                <!-- Main Content -->
+                <div class="main-content">
+                    <!-- Blog Categories - FIXED -->
+                    <div class="blog-categories">
+                        <h3 class="categories-title">Browse Categories</h3>
+                        <div class="categories-grid">
+                            <button class="category-item active" data-category="all">All Articles</button>
+                            <button class="category-item" data-category="Style Tips">Style Tips</button>
+                            <button class="category-item" data-category="Trend Reports">Trend Reports</button>
+                            <button class="category-item" data-category="Seasonal Fashion">Seasonal Fashion</button>
+                            <button class="category-item" data-category="Accessories">Accessories</button>
+                            <button class="category-item" data-category="Sustainable Fashion">Sustainable
+                                Fashion</button>
+                            <button class="category-item" data-category="Behind The Scenes">Behind The Scenes</button>
+                        </div>
+                    </div>
+
+                    <!-- Category Results Indicator -->
+                    <div class="category-results" id="categoryResults">
+                        <span id="resultsText">Showing all articles</span>
+                        <button class="clear-filters" id="clearFilters">
+                            <i class="fas fa-times"></i> Clear Filters
+                        </button>
+                    </div>
+
+                    <!-- Featured Post Section -->
+                    <div class="featured-post">
+                        <div class="featured-image">
+                            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
+                                alt="Summer Fashion Trends">
+                            <div class="featured-badge">Featured</div>
+                        </div>
+                        <div class="featured-content">
+                            <div class="featured-meta">
+                                <span><i class="far fa-calendar"></i> June 15, 2023</span>
+                                <span><i class="far fa-clock"></i> 5 min read</span>
+                                <span><i class="far fa-folder"></i> Trend Reports</span>
+                            </div>
+                            <h2 class="featured-title">Summer 2023 Fashion Trends: What You Need to Know</h2>
+                            <p class="featured-excerpt">Discover the hottest trends of the season from vibrant colors to
+                                sustainable fabrics. Our fashion experts break down the key pieces you need to refresh
+                                your wardrobe this summer.</p>
+                            <a href="#" class="featured-link">
+                                Read Full Article <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Latest Blog Posts Grid -->
+                    <div class="latest-posts" id="latest-posts">
+                        <h3 class="section-title">Latest Articles</h3>
+                        <div class="posts-grid" id="postsGrid">
+                            <!-- Posts will be dynamically added here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Recent Posts Widget -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">Recent Posts</h4>
+                        <ul class="recent-posts-list" id="recentPostsList">
+                            <!-- Recent posts will be dynamically added here -->
+                        </ul>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">Popular Tags</h4>
+                        <div class="tags-container">
+                            <button class="tag" data-tag="summer">Summer</button>
+                            <button class="tag" data-tag="trends">Trends</button>
+                            <button class="tag" data-tag="tips">Style Tips</button>
+                            <button class="tag" data-tag="accessories">Accessories</button>
+                            <button class="tag" data-tag="sustainable">Sustainable</button>
+                            <button class="tag" data-tag="minimalist">Minimalist</button>
+                            <button class="tag" data-tag="workwear">Workwear</button>
+                            <button class="tag" data-tag="evening">Evening Wear</button>
+                            <button class="tag" data-tag="colors">Colors</button>
+                            <button class="tag" data-tag="fabric">Fabric Guide</button>
+                        </div>
+                    </div>
+
+                    <!-- Popular Posts Widget -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">Most Popular</h4>
+                        <ul class="popular-posts-list" id="popularPostsList">
+                            <!-- Popular posts will be dynamically added here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2 class="newsletter-title">Stay Fashion Forward</h2>
+                <p class="newsletter-text">Subscribe to our newsletter and be the first to receive style tips, trend
+                    alerts, and exclusive offers directly in your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Refresh Your Wardrobe?</h2>
+                <p class="cta-text">Explore our curated collection of dresses and accessories inspired by the latest
+                    trends we feature in our blog.</p>
+                <div class="cta-buttons">
+                    <a href="shop.html" class="btn-primary">
+                        <i class="fas fa-shopping-bag"></i>
+                        Shop Collection
+                    </a>
+                    <a href="shop.html#new-arrivals" class="btn-secondary">
+                        <i class="fas fa-star"></i>
+                        New Arrivals
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="logo footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z" />
+                                <path d="M12,6a6,6,0,1,0,6,6A6,6,0,0,0,12,6Zm0,10a4,4,0,1,1,4-4A4,4,0,0,1,12,16Z" />
+                            </svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main" style="color: white; -webkit-text-fill-color: white;">SOUTHERN
+                                VENUE</span>
+                            <span class="logo-tagline">Fashion Delivered</span>
+                        </div>
+                    </a>
+                    <p>Bringing trendy, affordable fashion directly to your doorstep.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Customer Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Contact Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Fashion Ave, New York
+                        </li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> hello@southernvenue.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 Southern Venue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#header" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+   
+    <script src="blog.js"></script>
+
+</body>
+
+</html>
